@@ -1,0 +1,18 @@
+{
+  "name": "com.carbonfibergames.vaporevents",
+  "version": "1.0.0",
+  "displayName": "Vapor Events",
+  "description": "Simple event subscriber system.",
+  "unity": "2021.2",
+  "keywords": [
+    "Events"
+  ],
+  "author": {
+    "name": "Carbon Fiber Games LLC"
+  },
+  "hideInEditor": false,
+  "type": "library",
+  "dependencies": {
+    "com.carbonfibergames.vaporkeys": "1.0.0"
+  }
+}

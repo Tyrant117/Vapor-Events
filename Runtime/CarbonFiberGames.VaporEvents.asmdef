@@ -1,0 +1,16 @@
+{
+    "name": "CarbonFiberGames.VaporEvents",
+    "rootNamespace": "VaporEvents",
+    "references": [
+        "CarbonFiberGames.VaporKeys"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
