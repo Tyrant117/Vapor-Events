@@ -6,7 +6,7 @@ using VaporKeys;
 
 namespace VaporEvents
 {
-    [CreateAssetMenu(menuName = "Vapor Events/Event Key")]
+    [CreateAssetMenu(menuName = "Vapor/Events/Event Key")]
     public class ScriptableEventKey : ScriptableObject, IKey
     {
         // This uses the name of the scriptable object as the key.
@@ -25,7 +25,19 @@ namespace VaporEvents
         private void GenerateKeys()
         {
 #if UNITY_EDITOR
-            KeyGenerator.GenerateKeys<ScriptableEventKey>(UnityEditor.AssetDatabase.FindAssets("t:ScriptableEventKey"), "Vapor Events/Keys", "VaporEvents", "VaporEventKeys", true);
+            if (!UnityEditor.AssetDatabase.IsValidFolder("Assets/Vapor Framework"))
+            {
+                UnityEditor.AssetDatabase.CreateFolder("Assets", "Vapor Framework");
+                UnityEditor.AssetDatabase.Refresh(UnityEditor.ImportAssetOptions.ForceUpdate);
+            }
+
+            if (!UnityEditor.AssetDatabase.IsValidFolder("Assets/Vapor Framework/Vapor Event Keys"))
+            {
+                UnityEditor.AssetDatabase.CreateFolder("Assets/Vapor Framework", "Vapor Event Keys");
+                UnityEditor.AssetDatabase.Refresh(UnityEditor.ImportAssetOptions.ForceUpdate);
+            }
+
+            KeyGenerator.GenerateKeys<ScriptableEventKey>(UnityEditor.AssetDatabase.FindAssets("t:ScriptableEventKey"), "Vapor Framework/Vapor Event Keys", "VaporEvents", "VaporEventKeys", true);
 #endif
         }
     }
