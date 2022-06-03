@@ -6,16 +6,16 @@ namespace VaporEvents
     public class TransformProvider : ProviderData
     {
         private Transform cached;
-        private event Func<Transform> OnRequestRaised;
+        private Func<Transform> OnRequestRaised;
 
         public void Subscribe(Func<Transform> listener)
         {
             OnRequestRaised += listener;
         }
 
-        public void Unsubscribe(Func<Transform> listener)
+        public void Unsubscribe()
         {
-            OnRequestRaised -= listener;
+            OnRequestRaised = null;
         }
 
         public Transform Request()
@@ -26,7 +26,8 @@ namespace VaporEvents
             }
             else
             {
-                cached = OnRequestRaised?.Invoke();
+                Debug.Assert(OnRequestRaised != null, $"TransformProvider was requested before any events were subscribed.");
+                cached = OnRequestRaised.Invoke();
             }
             return cached;
         }

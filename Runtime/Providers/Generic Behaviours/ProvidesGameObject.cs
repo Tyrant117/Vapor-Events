@@ -1,3 +1,6 @@
+#if ODIN_INSPECTOR
+using Sirenix.OdinInspector;
+#endif
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,7 +26,7 @@ namespace VaporEvents
 
         private void OnDisable()
         {
-            ProviderBus.Get<GameObjectProvider>(InternalName).Unsubscribe(OnGameObjectRequested);
+            ProviderBus.Get<GameObjectProvider>(InternalName).Unsubscribe();
         }
 
         private GameObject OnGameObjectRequested()

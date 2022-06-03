@@ -76,5 +76,29 @@ namespace VaporEvents
                 return (T)providerMap[eventID];
             }
         }
+
+
+        /// <summary>
+        /// Gets or creates an instance of the event at the supplied id. This id should typically be a auto-generated guid, but any integer work. <br />
+        /// The request will create a or find the cached monobehaviour, the lifecycle will last the entire application runtime unless manually destroyed. <br />
+        /// This is a pseudo singleton, not a true singleton. It won't stop the collision of other monobehaviours of the same type, but if accessed only through this method will always used the cached one. <br />
+        /// <b>String/Int collisions will not be detected!</b>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="guid"></param>
+        /// <returns></returns>
+        public static T GetSingleton<T>(int eventID) where T : SingletonProviderData<T>
+        {
+            if (providerMap.TryGetValue(eventID, out var handler))
+            {
+                return (T)handler;
+            }
+            else
+            {
+                Debug.Log($"[Provider Bus] Adding Singleton Provider: [{eventID}] of Type: {typeof(T)}");
+                providerMap.Add(eventID, Activator.CreateInstance<T>());
+                return (T)providerMap[eventID];
+            }
+        }
     }
 }

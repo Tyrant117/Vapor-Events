@@ -4,16 +4,16 @@ namespace VaporEvents
 {
     public class IntProvider : ProviderData
     {
-        private event Func<int> OnRequestRaised;
+        private Func<int> OnRequestRaised;
 
         public void Subscribe(Func<int> listener)
         {
             OnRequestRaised += listener;
         }
 
-        public void Unsubscribe(Func<int> listener)
+        public void Unsubscribe()
         {
-            OnRequestRaised -= listener;
+            OnRequestRaised = null;
         }
 
         public int Request(int defaultResult = 0)

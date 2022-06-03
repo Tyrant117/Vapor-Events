@@ -7,16 +7,16 @@ namespace VaporEvents
 {
     public class GenericTypeProvider<T> : ProviderData
     {
-        private event Func<T> OnRequestRaised;
+        private Func<T> OnRequestRaised;
 
         public void Subscribe(Func<T> listener)
         {
             OnRequestRaised += listener;
         }
 
-        public void Unsubscribe(Func<T> listener)
+        public void Unsubscribe()
         {
-            OnRequestRaised -= listener;
+            OnRequestRaised = null;
         }
 
         public bool TryRequest(out T result)

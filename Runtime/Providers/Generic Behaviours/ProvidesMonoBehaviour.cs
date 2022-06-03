@@ -26,7 +26,7 @@ namespace VaporEvents
 
         private void OnDisable()
         {
-            ProviderBus.Get<BehaviourProvider>(InternalName).Unsubscribe(OnBehaviourRequested);
+            ProviderBus.Get<BehaviourProvider>(InternalName).Unsubscribe();
         }
 
         private MonoBehaviour OnBehaviourRequested()

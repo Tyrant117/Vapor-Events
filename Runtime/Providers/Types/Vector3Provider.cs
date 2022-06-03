@@ -5,16 +5,16 @@ namespace VaporEvents
 {
     public class Vector3Provider : ProviderData
     {
-        private event Func<Vector3> OnRequestRaised;
+        private Func<Vector3> OnRequestRaised;
 
         public void Subscribe(Func<Vector3> listener)
         {
             OnRequestRaised += listener;
         }
 
-        public void Unsubscribe(Func<Vector3> listener)
+        public void Unsubscribe()
         {
-            OnRequestRaised -= listener;
+            OnRequestRaised = null;
         }
 
         public Vector3 Request(Vector3 defaultResult = default)

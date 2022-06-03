@@ -4,16 +4,16 @@ namespace VaporEvents
 {
     public class ShortProvider : ProviderData
     {
-        private event Func<short> OnRequestRaised;
+        private Func<short> OnRequestRaised;
 
         public void Subscribe(Func<short> listener)
         {
             OnRequestRaised += listener;
         }
 
-        public void Unsubscribe(Func<short> listener)
+        public void Unsubscribe()
         {
-            OnRequestRaised -= listener;
+            OnRequestRaised = null;
         }
 
         public short Request(short defaultResult = 0)

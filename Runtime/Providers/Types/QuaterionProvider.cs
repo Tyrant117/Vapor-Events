@@ -5,16 +5,16 @@ namespace VaporEvents
 {
     public class QuaterionProvider : ProviderData
     {
-        private event Func<Quaternion> OnRequestRaised;
+        private Func<Quaternion> OnRequestRaised;
 
         public void Subscribe(Func<Quaternion> listener)
         {
             OnRequestRaised += listener;
         }
 
-        public void Unsubscribe(Func<Quaternion> listener)
+        public void Unsubscribe()
         {
-            OnRequestRaised -= listener;
+            OnRequestRaised = null;
         }
 
         public Quaternion Request(Quaternion defaultResult = default)

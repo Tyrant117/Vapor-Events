@@ -1,24 +1,26 @@
 using System;
+using UnityEngine;
 
 namespace VaporEvents
 {
     public class BooleanProvider : ProviderData
     {
-        private event Func<bool> OnRequestRaised;
+        private Func<bool> OnRequestRaised;
 
         public void Subscribe(Func<bool> listener)
         {
             OnRequestRaised += listener;
         }
 
-        public void Unsubscribe(Func<bool> listener)
+        public void Unsubscribe()
         {
-            OnRequestRaised -= listener;
+            OnRequestRaised = null;
         }
 
         public bool Request()
         {
-            return OnRequestRaised != null && OnRequestRaised.Invoke();
+            Debug.Assert(OnRequestRaised != null, "BooleanProvider was requested before any events were subscribed.");
+            return OnRequestRaised.Invoke();
         }
     }
 }

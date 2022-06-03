@@ -24,7 +24,7 @@ namespace VaporEvents
 
         private void OnDisable()
         {
-            ProviderBus.Get<TransformProvider>(InternalName).Unsubscribe(OnTransformRequested);
+            ProviderBus.Get<TransformProvider>(InternalName).Unsubscribe();
         }
 
         private Transform OnTransformRequested()

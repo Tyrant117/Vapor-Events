@@ -4,16 +4,16 @@ namespace VaporEvents
 {
     public class ULongProvider : ProviderData
     {
-        private event Func<ulong> OnRequestRaised;
+        private Func<ulong> OnRequestRaised;
 
         public void Subscribe(Func<ulong> listener)
         {
             OnRequestRaised += listener;
         }
 
-        public void Unsubscribe(Func<ulong> listener)
+        public void Unsubscribe()
         {
-            OnRequestRaised -= listener;
+            OnRequestRaised = null;
         }
 
         public ulong Request(ulong defaultResult = 0)

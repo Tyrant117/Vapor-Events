@@ -6,16 +6,16 @@ namespace VaporEvents
     public class GameObjectProvider : ProviderData
     {
         private GameObject cached;
-        private event Func<GameObject> OnRequestRaised;
+        private Func<GameObject> OnRequestRaised;
 
         public void Subscribe(Func<GameObject> listener)
         {
             OnRequestRaised += listener;
         }
 
-        public void Unsubscribe(Func<GameObject> listener)
+        public void Unsubscribe()
         {
-            OnRequestRaised -= listener;
+            OnRequestRaised = null;
         }
 
         public GameObject Request()
@@ -26,7 +26,8 @@ namespace VaporEvents
             }
             else
             {
-                cached = OnRequestRaised?.Invoke();
+                Debug.Assert(OnRequestRaised != null, $"GameObjectProvider was requested before any events were subscribed.");
+                cached = OnRequestRaised.Invoke();
             }
             return cached;
         }

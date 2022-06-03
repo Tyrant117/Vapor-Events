@@ -6,16 +6,16 @@ namespace VaporEvents
     public class BehaviourProvider<T> : ProviderData where T : MonoBehaviour
     {
         private T cached;
-        private event Func<T> OnRequestRaised;
+        private Func<T> OnRequestRaised;
 
         public void Subscribe(Func<T> listener)
         {
             OnRequestRaised += listener;
         }
 
-        public void Unsubscribe(Func<T> listener)
+        public void Unsubscribe()
         {
-            OnRequestRaised -= listener;
+            OnRequestRaised = null;
         }
 
         public T Request()
@@ -26,7 +26,8 @@ namespace VaporEvents
             }
             else
             {
-                cached = OnRequestRaised?.Invoke();
+                Debug.Assert(OnRequestRaised != null, $"BehaviourProvider<{typeof(T)}> was requested before any events were subscribed.");
+                cached = OnRequestRaised.Invoke();
             }
             return cached;
         }
@@ -35,16 +36,16 @@ namespace VaporEvents
     public class BehaviourProvider : ProviderData
     {
         private MonoBehaviour cached;
-        private event Func<MonoBehaviour> OnRequestRaised;
+        private Func<MonoBehaviour> OnRequestRaised;
 
         public void Subscribe(Func<MonoBehaviour> listener)
         {
             OnRequestRaised += listener;
         }
 
-        public void Unsubscribe(Func<MonoBehaviour> listener)
+        public void Unsubscribe()
         {
-            OnRequestRaised -= listener;
+            OnRequestRaised = null;
         }
 
         public T Request<T>() where T : MonoBehaviour
@@ -55,7 +56,8 @@ namespace VaporEvents
             }
             else
             {
-                cached = OnRequestRaised?.Invoke();
+                Debug.Assert(OnRequestRaised != null, $"BehaviourProvider with {typeof(T)} was requested before any events were subscribed.");
+                cached = OnRequestRaised.Invoke();
             }
             return cached as T;
         }

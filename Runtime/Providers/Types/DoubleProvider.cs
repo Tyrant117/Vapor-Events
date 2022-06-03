@@ -1,24 +1,26 @@
 using System;
+using UnityEngine;
 
 namespace VaporEvents
 {
     public class DoubleProvider : ProviderData
     {
-        private event Func<double> OnRequestRaised;
+        private Func<double> OnRequestRaised;
 
         public void Subscribe(Func<double> listener)
         {
             OnRequestRaised += listener;
         }
 
-        public void Unsubscribe(Func<double> listener)
+        public void Unsubscribe()
         {
-            OnRequestRaised -= listener;
+            OnRequestRaised = null;
         }
 
-        public double Request(double defaultResult = 0)
+        public double Request()
         {
-            return OnRequestRaised != null ? OnRequestRaised.Invoke() : defaultResult;
+            Debug.Assert(OnRequestRaised != null, "DoubleProvider was requested before any events were subscribed.");
+            return OnRequestRaised.Invoke();
         }
     }
 }

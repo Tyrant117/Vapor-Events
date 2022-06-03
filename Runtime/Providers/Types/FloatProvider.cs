@@ -4,16 +4,16 @@ namespace VaporEvents
 {
     public class FloatProvider : ProviderData
     {
-        private event Func<float> OnRequestRaised;
+        private Func<float> OnRequestRaised;
 
         public void Subscribe(Func<float> listener)
         {
             OnRequestRaised += listener;
         }
 
-        public void Unsubscribe(Func<float> listener)
+        public void Unsubscribe()
         {
-            OnRequestRaised -= listener;
+            OnRequestRaised = null;
         }
 
         public float Request(float defaultResult = 0)
