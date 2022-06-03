@@ -7,7 +7,7 @@ namespace VaporEvents
 {
     public static class ProviderBus
     {
-        public static Dictionary<int, ProviderData> providerMap = new();
+        public static readonly Dictionary<int, ProviderData> providerMap = new();
 
         /// <summary>
         /// Gets or creates an instance of the event at the supplied id. This id should typically be a auto-generated guid, but any integer will work. <br />
@@ -87,7 +87,7 @@ namespace VaporEvents
         /// <typeparam name="T"></typeparam>
         /// <param name="guid"></param>
         /// <returns></returns>
-        public static T GetSingleton<T>(int eventID) where T : SingletonProviderData<T>
+        public static T GetSingleton<T, U>(int eventID) where T : SingletonProvider<U> where U : MonoBehaviour
         {
             if (providerMap.TryGetValue(eventID, out var handler))
             {
@@ -96,9 +96,19 @@ namespace VaporEvents
             else
             {
                 Debug.Log($"[Provider Bus] Adding Singleton Provider: [{eventID}] of Type: {typeof(T)}");
-                providerMap.Add(eventID, Activator.CreateInstance<T>());
+                providerMap.Add(eventID, Activator.CreateInstance<SingletonProvider<U>>());
                 return (T)providerMap[eventID];
             }
+        }
+
+        public static T GetSingleton<T, U>(string eventName) where T : SingletonProvider<U> where U : MonoBehaviour
+        {
+            return GetSingleton<T, U>(eventName.GetHashCode());
+        }
+
+        public static T GetSingleton<T, U>(ScriptableEventKey eventKey) where T : SingletonProvider<U> where U : MonoBehaviour
+        {
+            return GetSingleton<T, U>(eventKey.name.GetHashCode());
         }
     }
 }

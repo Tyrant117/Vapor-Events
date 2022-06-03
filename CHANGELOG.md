@@ -1,3 +1,6 @@
+# v1.0.4
+* Fixing singleton providers.
+
 # v1.0.3
 * Exposing inspector field properties for providers.
 
