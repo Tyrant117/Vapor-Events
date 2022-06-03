@@ -1,3 +1,6 @@
+# v1.0.5
+* More fixes for singleton providers.
+
 # v1.0.4
 * Fixing singleton providers.
 
