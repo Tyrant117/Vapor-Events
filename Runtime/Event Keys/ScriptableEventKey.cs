@@ -9,19 +9,19 @@ namespace VaporEvents
     [CreateAssetMenu(menuName = "Vapor/Events/Event Key")]
     public class ScriptableEventKey : ScriptableObject, IKey
     {
+        [SerializeField]
+        protected bool _isDeprecated;
+
         // This uses the name of the scriptable object as the key.
         public int Key => name.GetHashCode();
         public string DisplayName => name;
         public string InternalID => name;
-        public bool IsDeprecated => isDeprecated;
-
-        public bool isDeprecated;
+        public bool IsDeprecated => _isDeprecated;        
 
 #if ODIN_INSPECTOR
         [Button]
-#else
-        [ContextMenu("Generate Keys")]
 #endif
+        [ContextMenu("Generate Keys")]
         private void GenerateKeys()
         {
 #if UNITY_EDITOR

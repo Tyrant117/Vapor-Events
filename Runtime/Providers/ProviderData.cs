@@ -11,6 +11,6 @@ namespace VaporEvents
 
     public class SingletonProviderData<T> : ProviderData
     {
-        public T Instance { get; set; }
+        public T Instance { get; protected set; }
     }
 }

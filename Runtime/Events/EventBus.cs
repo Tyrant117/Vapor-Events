@@ -6,7 +6,7 @@ namespace VaporEvents
 {
     public static class EventBus
     {
-        public static Dictionary<int, EventData> eventMap = new();
+        public static readonly Dictionary<int, EventData> eventMap = new();
 
         /// <summary>
         /// Gets or creates an instance of the event at the supplied id. This id should typically be a auto-generated guid, but any string that isnt empty or null will work. <br />

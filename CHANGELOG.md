@@ -1,3 +1,7 @@
+# v1.0.6
+* Adding component and rigidbody providers.
+* Exposing properties on ScriptableEventKey.
+
 # v1.0.5
 * More fixes for singleton providers.
 

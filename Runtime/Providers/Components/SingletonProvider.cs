@@ -14,6 +14,10 @@ namespace VaporEvents
         /// <param name="instance"></param>
         public void Supply(T instance)
         {
+            if (Instance != null)
+            {
+                Debug.LogError($"Supplying a singleton when one already exists in the scene. {Instance.gameObject}");
+            }
             Instance = Instance;
             GameObject.DontDestroyOnLoad(instance.gameObject);
         }
