@@ -1,3 +1,6 @@
+# v1.0.3
+* Exposing inspector field properties for providers.
+
 # v1.0.2
 * Fixes for Odin Inspector.
 
