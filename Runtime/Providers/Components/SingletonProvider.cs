@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace VaporEvents
@@ -18,7 +15,7 @@ namespace VaporEvents
             {
                 Debug.LogError($"Supplying a singleton when one already exists in the scene. {Instance.gameObject}");
             }
-            Instance = Instance;
+            Instance = instance;
             GameObject.DontDestroyOnLoad(instance.gameObject);
         }
 
