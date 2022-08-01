@@ -1,3 +1,6 @@
+# v1.0.8
+* Added string providers.
+
 # v1.0.7
 * More fixes for singleton providers.
 
