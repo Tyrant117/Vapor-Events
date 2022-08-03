@@ -1,3 +1,6 @@
+# v1.0.10
+* Added additional ways to access EventBus.Get.
+
 # v1.0.9
 * Added additional events.
 * Added ProvidedMonoBehaviour that will automatically provide the MB of the child behaviours implementing it.  
