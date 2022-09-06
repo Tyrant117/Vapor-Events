@@ -1,3 +1,6 @@
+# v1.0.11
+* Set the log messages to only be called when VAPOR_EVENT_LOGGING is defined.
+
 # v1.0.10
 * Added additional ways to access EventBus.Get.
 

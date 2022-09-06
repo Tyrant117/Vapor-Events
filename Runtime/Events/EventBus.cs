@@ -23,7 +23,9 @@ namespace VaporEvents
             }
             else
             {
+#if VAPOR_EVENT_LOGGING
                 Debug.Log($"[Event Bus] Adding Event: [{eventID}] of Type: {typeof(T)}");
+#endif
                 eventMap.Add(eventID, Activator.CreateInstance<T>());
                 return (T)eventMap[eventID];
             }
@@ -46,7 +48,9 @@ namespace VaporEvents
             }
             else
             {
+#if VAPOR_EVENT_LOGGING
                 Debug.Log($"[Event Bus] Adding Event: [{eventName}] of Type: {typeof(T)}");
+#endif
                 eventMap.Add(eventID, Activator.CreateInstance<T>());
                 return (T)eventMap[eventID];
             }
@@ -69,7 +73,9 @@ namespace VaporEvents
             }
             else
             {
+#if VAPOR_EVENT_LOGGING
                 Debug.Log($"[Event Bus] Adding Event: [{eventKey.DisplayName}] of Type: {typeof(T)}");
+#endif
                 eventMap.Add(eventID, Activator.CreateInstance<T>());
                 return (T)eventMap[eventID];
             }

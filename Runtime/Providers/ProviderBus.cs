@@ -25,7 +25,9 @@ namespace VaporEvents
             }
             else
             {
+#if VAPOR_EVENT_LOGGING
                 Debug.Log($"[Provider Bus] Adding Provider: [{eventID}] of Type: {typeof(T)}");
+#endif
                 providerMap.Add(eventID, Activator.CreateInstance<T>());
                 return (T)providerMap[eventID];
             }
@@ -48,7 +50,9 @@ namespace VaporEvents
             }
             else
             {
+#if VAPOR_EVENT_LOGGING
                 Debug.Log($"[Provider Bus] Adding Provider: [{eventName}] of Type: {typeof(T)}");
+#endif
                 providerMap.Add(eventID, Activator.CreateInstance<T>());
                 return (T)providerMap[eventID];
             }
@@ -71,7 +75,9 @@ namespace VaporEvents
             }
             else
             {
+#if VAPOR_EVENT_LOGGING
                 Debug.Log($"[Provider Bus] Adding Provider: [{eventKey.name}] of Type: {typeof(T)}");
+#endif
                 providerMap.Add(eventID, Activator.CreateInstance<T>());
                 return (T)providerMap[eventID];
             }
@@ -95,7 +101,9 @@ namespace VaporEvents
             }
             else
             {
+#if VAPOR_EVENT_LOGGING
                 Debug.Log($"[Provider Bus] Adding Singleton Provider: [{eventID}] of Type: {typeof(T)}");
+#endif
                 providerMap.Add(eventID, Activator.CreateInstance<SingletonProvider<U>>());
                 return (T)providerMap[eventID];
             }

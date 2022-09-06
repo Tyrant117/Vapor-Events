@@ -1,6 +1,6 @@
 {
   "name": "com.carbonfibergames.vaporevents",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "displayName": "Vapor Events",
   "description": "Simple event subscriber system.",
   "unity": "2021.3",
