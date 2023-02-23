@@ -1,3 +1,6 @@
+# v1.0.12
+* Added the GetKey method to ProvidedMonoBehaviour.
+
 # v1.0.11
 * Set the log messages to only be called when VAPOR_EVENT_LOGGING is defined.
 
