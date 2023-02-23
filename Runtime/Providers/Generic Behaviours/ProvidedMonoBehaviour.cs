@@ -9,7 +9,7 @@ namespace VaporEvents
         [SerializeField]
         protected string overrideName = "";
 
-        protected virtual string InternalName => overrideName.Length > 0 ? overrideName : gameObject.name;
+        public virtual string InternalName => overrideName.Length > 0 ? overrideName : gameObject.name;
 
         protected virtual void OnEnable()
         {

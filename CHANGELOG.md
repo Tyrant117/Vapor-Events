@@ -1,3 +1,6 @@
+# v1.0.13
+* Changed InternalName to public in ProvidedMonoBehaviour.
+
 # v1.0.12
 * Added the GetKey method to ProvidedMonoBehaviour.
 
