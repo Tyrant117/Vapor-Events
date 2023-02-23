@@ -25,5 +25,10 @@ namespace VaporEvents
         {
             return this;
         }
+
+        public virtual int GetKey()
+        {
+            return InternalName.GetHashCode();
+        }
     }
 }
