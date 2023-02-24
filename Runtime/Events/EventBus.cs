@@ -6,7 +6,7 @@ namespace VaporEvents
 {
     public static class EventBus
     {
-        public static readonly Dictionary<int, EventData> eventMap = new();
+        public static readonly Dictionary<int, IEventData> eventMap = new();
 
         /// <summary>
         /// Gets or creates an instance of the event at the supplied id. This id should typically be a auto-generated guid, but any string that isnt empty or null will work. <br />
@@ -15,7 +15,7 @@ namespace VaporEvents
         /// <typeparam name="T"></typeparam>
         /// <param name="guid"></param>
         /// <returns></returns>
-        public static T Get<T>(int eventID) where T : EventData
+        public static T Get<T>(int eventID) where T : IEventData
         {
             if (eventMap.TryGetValue(eventID, out var handler))
             {
@@ -39,7 +39,7 @@ namespace VaporEvents
         /// <typeparam name="T"></typeparam>
         /// <param name="guid"></param>
         /// <returns></returns>
-        public static T Get<T>(string eventName) where T : EventData
+        public static T Get<T>(string eventName) where T : IEventData
         {
             int eventID = eventName.GetHashCode();
             if (eventMap.TryGetValue(eventID, out var handler))
@@ -64,7 +64,7 @@ namespace VaporEvents
         /// <typeparam name="T"></typeparam>
         /// <param name="guid"></param>
         /// <returns></returns>
-        public static T Get<T>(ScriptableEventKey eventKey) where T : EventData
+        public static T Get<T>(ScriptableEventKey eventKey) where T : IEventData
         {
             int eventID = eventKey.Key;
             if (eventMap.TryGetValue(eventID, out var handler))

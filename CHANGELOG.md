@@ -1,3 +1,6 @@
+# v1.1.0
+* Breaking upgrade, removed typed events and created the generic EventData<T> and a sender source IEventSender.
+
 # v1.0.13
 * Changed InternalName to public in ProvidedMonoBehaviour.
 
