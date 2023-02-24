@@ -1,3 +1,6 @@
+# v1.1.1
+* Added adiontal generic parameters to EventData<T>.
+
 # v1.1.0
 * Breaking upgrade, removed typed events and created the generic EventData<T> and a sender source IEventSender.
 
