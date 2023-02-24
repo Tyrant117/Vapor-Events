@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace VaporEvents
 {
-    public class StringProvider : ProviderData
+    public class StringProvider : IProviderData
     {
         private Func<string> OnRequestRaised;
 

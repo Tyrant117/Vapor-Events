@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace VaporEvents
 {
-    public class QuaterionProvider : ProviderData
+    public class QuaterionProvider : IProviderData
     {
         private Func<Quaternion> OnRequestRaised;
 

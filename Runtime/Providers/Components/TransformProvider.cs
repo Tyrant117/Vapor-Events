@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace VaporEvents
 {
-    public class TransformProvider : ProviderData
+    public class TransformProvider : IProviderData
     {
         private Transform cached;
         private Func<Transform> OnRequestRaised;

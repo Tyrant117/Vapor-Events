@@ -2,7 +2,7 @@ using System;
 
 namespace VaporEvents
 {
-    public class FloatProvider : ProviderData
+    public class FloatProvider : IProviderData
     {
         private Func<float> OnRequestRaised;
 

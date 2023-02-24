@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace VaporEvents
 {
-    public class DoubleProvider : ProviderData
+    public class DoubleProvider : IProviderData
     {
         private Func<double> OnRequestRaised;
 

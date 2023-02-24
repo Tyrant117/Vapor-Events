@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace VaporEvents
 {
-    public class BooleanProvider : ProviderData
+    public class BooleanProvider : IProviderData
     {
         private Func<bool> OnRequestRaised;
 

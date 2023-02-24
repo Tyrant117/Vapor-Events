@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace VaporEvents
 {
-    public class BehaviourProvider<T> : ProviderData where T : MonoBehaviour
+    public class BehaviourProvider<T> : IProviderData where T : MonoBehaviour
     {
         private T cached;
         private Func<T> OnRequestRaised;
@@ -33,7 +33,7 @@ namespace VaporEvents
         }
     }
 
-    public class BehaviourProvider : ProviderData
+    public class BehaviourProvider : IProviderData
     {
         private MonoBehaviour cached;
         private Func<MonoBehaviour> OnRequestRaised;

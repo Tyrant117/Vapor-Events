@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace VaporEvents
 {
-    public class GameObjectProvider : ProviderData
+    public class GameObjectProvider : IProviderData
     {
         private GameObject cached;
         private Func<GameObject> OnRequestRaised;

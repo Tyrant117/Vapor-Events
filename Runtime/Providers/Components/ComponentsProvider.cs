@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace VaporEvents
 {
-    public class ComponentsProvider : ProviderData
+    public class ComponentsProvider : IProviderData
     {
         private List<Component> cached;
         private Func<List<Component>> OnRequestRaised;

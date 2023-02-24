@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace VaporEvents
 {
-    public class RigidbodyProvider : ProviderData
+    public class RigidbodyProvider : IProviderData
     {
         private Rigidbody cached;
         private Func<Rigidbody> OnRequestRaised;

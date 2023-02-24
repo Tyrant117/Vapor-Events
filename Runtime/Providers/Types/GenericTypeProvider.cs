@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace VaporEvents
 {
-    public class GenericTypeProvider<T> : ProviderData
+    public class GenericTypeProvider<T> : IProviderData
     {
         private Func<T> OnRequestRaised;
 

@@ -2,7 +2,7 @@ using System;
 
 namespace VaporEvents
 {
-    public class ULongProvider : ProviderData
+    public class ULongProvider : IProviderData
     {
         private Func<ulong> OnRequestRaised;
 

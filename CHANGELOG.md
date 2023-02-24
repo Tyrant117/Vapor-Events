@@ -1,3 +1,6 @@
+# v1.1.2
+* Added generic ProviderData<T>.
+
 # v1.1.1
 * Added adiontal generic parameters to EventData<T>.
 
