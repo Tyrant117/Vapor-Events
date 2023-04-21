@@ -8,6 +8,12 @@ namespace VaporEvents
     {
         public static readonly Dictionary<int, IEventData> eventMap = new();
 
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        static void Init()
+        {
+            eventMap.Clear();
+        }
+
         /// <summary>
         /// Gets or creates an instance of the event at the supplied id. This id should typically be a auto-generated guid, but any string that isnt empty or null will work. <br />
         /// The event should always be cached or only used in loading and unloading.
