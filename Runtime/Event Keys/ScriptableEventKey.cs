@@ -37,7 +37,7 @@ namespace VaporEvents
                 UnityEditor.AssetDatabase.Refresh(UnityEditor.ImportAssetOptions.ForceUpdate);
             }
 
-            KeyGenerator.GenerateKeys<ScriptableEventKey>(UnityEditor.AssetDatabase.FindAssets("t:ScriptableEventKey"), "Vapor Framework/Vapor Event Keys", "VaporEvents", "VaporEventKeys", true);
+            KeyGenerator.GenerateKeys<ScriptableEventKey>(UnityEditor.AssetDatabase.FindAssets("t:ScriptableEventKey"), "Vapor Framework/Vapor Event Keys", "VaporEvents", "VaporEventKeys", true, true);
 #endif
         }
     }
