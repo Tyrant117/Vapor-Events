@@ -1,5 +1,5 @@
 # v1.1.3
-* Made the event bus work with enter play mode options.
+* Made the event/provider bus work with enter play mode options.
 
 # v1.1.2
 * Added generic ProviderData<T>.

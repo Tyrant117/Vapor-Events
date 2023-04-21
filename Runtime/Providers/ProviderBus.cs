@@ -9,6 +9,12 @@ namespace VaporEvents
     {
         public static readonly Dictionary<int, IProviderData> providerMap = new();
 
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        static void Init()
+        {
+            providerMap.Clear();
+        }
+
         /// <summary>
         /// Gets or creates an instance of the event at the supplied id. This id should typically be a auto-generated guid, but any integer will work. <br />
         /// The event should always be cached or only used in loading and unloading. <br />
