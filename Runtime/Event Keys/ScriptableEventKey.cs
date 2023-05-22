@@ -13,7 +13,14 @@ namespace VaporEvents
         protected bool _isDeprecated;
 
         // This uses the name of the scriptable object as the key.
-        public int Key => name.GetHashCode();
+
+        #if ODIN_INSPECTOR
+        [ReadOnly]
+        #endif
+        [SerializeField]
+        private int _key = IKey.EmptyKey;
+        public int Key => _key;
+        public void ForceRefreshKey() { _key = name.GetHashCode(); }
         public string DisplayName => name;
         public string InternalID => name;
         public bool IsDeprecated => _isDeprecated;        
@@ -28,16 +35,16 @@ namespace VaporEvents
             if (!UnityEditor.AssetDatabase.IsValidFolder("Assets/Vapor Framework"))
             {
                 UnityEditor.AssetDatabase.CreateFolder("Assets", "Vapor Framework");
-                UnityEditor.AssetDatabase.Refresh(UnityEditor.ImportAssetOptions.ForceUpdate);
+                UnityEditor.AssetDatabase.Refresh();
             }
 
             if (!UnityEditor.AssetDatabase.IsValidFolder("Assets/Vapor Framework/Vapor Event Keys"))
             {
                 UnityEditor.AssetDatabase.CreateFolder("Assets/Vapor Framework", "Vapor Event Keys");
-                UnityEditor.AssetDatabase.Refresh(UnityEditor.ImportAssetOptions.ForceUpdate);
+                UnityEditor.AssetDatabase.Refresh();
             }
 
-            KeyGenerator.GenerateKeys<ScriptableEventKey>(UnityEditor.AssetDatabase.FindAssets("t:ScriptableEventKey"), "Vapor Framework/Vapor Event Keys", "VaporEvents", "VaporEventKeys", true, true);
+            KeyGenerator.GenerateKeys<ScriptableEventKey>("Vapor Framework/Vapor Event Keys", "VaporEvents", "VaporEventKeys", false, false);
 #endif
         }
     }

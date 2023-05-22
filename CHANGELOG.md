@@ -1,4 +1,7 @@
 # v1.1.3
+* Added support for Vapor Keys 1.0.11.
+
+# v1.1.3
 * Made the event/provider bus work with enter play mode options.
 
 # v1.1.2
