@@ -18,7 +18,7 @@ namespace VaporEvents
         [ReadOnly]
         #endif
         [SerializeField]
-        private int _key = IKey.EmptyKey;
+        private int _key;
         public int Key => _key;
         public void ForceRefreshKey() { _key = name.GetHashCode(); }
         public string DisplayName => name;
@@ -44,7 +44,7 @@ namespace VaporEvents
                 UnityEditor.AssetDatabase.Refresh();
             }
 
-            KeyGenerator.GenerateKeys<ScriptableEventKey>("Vapor Framework/Vapor Event Keys", "VaporEvents", "VaporEventKeys", false, false);
+            KeyGenerator.GenerateKeys<ScriptableEventKey>("Vapor Framework/Vapor Event Keys", "VaporEvents", "VaporEventKeys", false);
 #endif
         }
     }

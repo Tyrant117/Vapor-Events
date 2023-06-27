@@ -1,3 +1,6 @@
+# v1.2.0
+* Added support for Vapor Keys 2.0.0.
+
 # v1.1.3
 * Added support for Vapor Keys 1.0.11.
 
