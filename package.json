@@ -11,7 +11,6 @@
     "name": "Carbon Fiber Games LLC"
   },
   "hideInEditor": false,
-  "type": "library",
   "dependencies": {
     "com.carbonfibergames.vaporkeys": "2.0.0"
   }

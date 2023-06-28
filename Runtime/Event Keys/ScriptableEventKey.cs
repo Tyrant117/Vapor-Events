@@ -14,9 +14,9 @@ namespace VaporEvents
 
         // This uses the name of the scriptable object as the key.
 
-        #if ODIN_INSPECTOR
+#if ODIN_INSPECTOR
         [ReadOnly]
-        #endif
+#endif
         [SerializeField]
         private int _key;
         public int Key => _key;
