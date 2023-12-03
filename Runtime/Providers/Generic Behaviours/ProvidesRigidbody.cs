@@ -13,12 +13,12 @@ namespace VaporEvents
         [SerializeField, Tooltip("The string name of the provider")]
         private string _providerName;
         [SerializeField, Tooltip("The optional key to use instead of a provider name, useful for no magic string.")]
-        private ScriptableEventKey _optionalKey;
+        private EventKeySO _optionalKey;
         [SerializeField, Tooltip("Rigidbody to provide.")]
         private Rigidbody _rigidbody;
 
         public string ProviderName { get => _providerName; set => _providerName = value; }
-        public ScriptableEventKey OptionalKey { get => _optionalKey; set => _optionalKey = value; }
+        public EventKeySO OptionalKey { get => _optionalKey; set => _optionalKey = value; }
         public Rigidbody Rigidbody { get => _rigidbody; set => _rigidbody = value; }
 
 

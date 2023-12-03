@@ -13,7 +13,7 @@ namespace VaporEvents
         [SerializeField]
         private string providerName;
         [SerializeField]
-        private ScriptableEventKey optionalKey;
+        private EventKeySO optionalKey;
         [SerializeField]
         private MonoBehaviour behaviour;
 

@@ -72,7 +72,7 @@ namespace VaporEvents
         /// <typeparam name="T"></typeparam>
         /// <param name="guid"></param>
         /// <returns></returns>
-        public static T Get<T>(ScriptableEventKey eventKey) where T : IProviderData
+        public static T Get<T>(EventKeySO eventKey) where T : IProviderData
         {
             int eventID = eventKey.name.GetHashCode();
             if (providerMap.TryGetValue(eventID, out var handler))
@@ -120,7 +120,7 @@ namespace VaporEvents
             return GetSingleton<T, U>(eventName.GetHashCode());
         }
 
-        public static T GetSingleton<T, U>(ScriptableEventKey eventKey) where T : SingletonProvider<U> where U : MonoBehaviour
+        public static T GetSingleton<T, U>(EventKeySO eventKey) where T : SingletonProvider<U> where U : MonoBehaviour
         {
             return GetSingleton<T, U>(eventKey.name.GetHashCode());
         }

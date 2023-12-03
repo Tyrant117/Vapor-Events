@@ -1,9 +1,9 @@
 {
   "name": "com.carbonfibergames.vaporevents",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "displayName": "Vapor Events",
   "description": "Simple event subscriber system.",
-  "unity": "2021.3",
+  "unity": "2022.3",
   "keywords": [
     "Events"
   ],
@@ -12,6 +12,6 @@
   },
   "hideInEditor": false,
   "dependencies": {
-    "com.carbonfibergames.vaporkeys": "2.0.0"
+    "com.carbonfibergames.vaporkeys": "3.0.0"
   }
 }

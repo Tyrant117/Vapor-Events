@@ -15,7 +15,7 @@ namespace VaporEvents
         [SerializeField]
         private string providerName;
         [SerializeField]
-        private ScriptableEventKey optionalKey;
+        private EventKeySO optionalKey;
 
         private string InternalName => optionalKey != null ? optionalKey.name : providerName;
 

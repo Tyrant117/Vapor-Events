@@ -70,7 +70,7 @@ namespace VaporEvents
         /// <typeparam name="T"></typeparam>
         /// <param name="guid"></param>
         /// <returns></returns>
-        public static T Get<T>(ScriptableEventKey eventKey) where T : IEventData
+        public static T Get<T>(EventKeySO eventKey) where T : IEventData
         {
             int eventID = eventKey.Key;
             if (eventMap.TryGetValue(eventID, out var handler))
